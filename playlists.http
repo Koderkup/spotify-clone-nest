@@ -1,0 +1,10 @@
+### create playlist
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+    "name": "My Playlist",
+    "songs": [6],
+    "user": 1
+
+}

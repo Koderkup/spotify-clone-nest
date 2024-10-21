@@ -1,0 +1,23 @@
+### get one song
+GET http://localhost:3000/songs/4
+
+### Get all songs
+GET http://localhost:3000/songs
+
+### update song
+PUT http://localhost:3000/songs/4
+
+### delete song
+DELETE http://localhost:3000/songs/4
+
+### create song
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+  "title": "New Song Title",
+  "artists": [1, 2, 3],
+  "releasedDate": "2024-08-06",
+  "duration": "02:54",
+  "lyrics": "These are the lyrics of the song."
+}
