@@ -1,22 +1,31 @@
 ### get one song
-GET http://localhost:3000/songs/4
+GET http://localhost:3000/songs/1
 
 ### Get all songs
-GET http://localhost:3000/songs
+GET http://localhost:3000/songs/?page=1&limit=5
 
 ### update song
-PUT http://localhost:3000/songs/4
+PUT http://localhost:3000/songs/1
+Content-Type: application/json
+
+{
+  "title": "New Track Very Popular",
+  "releasedDate": "2024-08-06",
+  "artists": [1, 2, 3],
+  "duration": "02:54",
+  "lyrics": "These are the lyrics of the song."
+}
 
 ### delete song
-DELETE http://localhost:3000/songs/4
+DELETE http://localhost:3000/songs/1
 
 ### create song
 POST http://localhost:3000/songs
 Content-Type: application/json
 
 {
-  "title": "New Song Title",
-  "artists": [1, 2, 3],
+  "title": "New Song Title7",
+  "artists": [2,4,3],
   "releasedDate": "2024-08-06",
   "duration": "02:54",
   "lyrics": "These are the lyrics of the song."

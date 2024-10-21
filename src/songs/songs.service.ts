@@ -49,7 +49,7 @@ export class SongsService {
   }
 
   remove(id: number): Promise<DeleteResult> {
-    return this.songsRepository.delete(id);
+    return this.songsRepository.delete({id});
   }
 
   update(id: number, recordToUpdate: UpdateSongDto): Promise<UpdateResult> {
