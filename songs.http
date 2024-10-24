@@ -22,10 +22,11 @@ DELETE http://localhost:3000/songs/1
 ### create song
 POST http://localhost:3000/songs
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt1ekBleGFtcGxlLmNvbSIsInVzZXJJZCI6MTUsImFydGlzdElkIjo1LCJpYXQiOjE3Mjk2MDYwMTAsImV4cCI6MTcyOTY5MjQxMH0.J5b_gURMPdtYQMTvBgIB5m5KCNyaBQcsCfLQfEQeFqg
 
 {
-  "title": "New Song Title7",
-  "artists": [2,4,3],
+  "title": "New Song Title9",
+  "artists": [5],
   "releasedDate": "2024-08-06",
   "duration": "02:54",
   "lyrics": "These are the lyrics of the song."

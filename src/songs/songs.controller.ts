@@ -28,7 +28,7 @@ import { ArtistJwtGuard } from 'src/auth/artists-jwt-guard';
 export class SongsController {
   constructor(private songsService: SongsService) {}
   @Post()
-  // @UseGuards(ArtistJwtGuard)
+  @UseGuards(ArtistJwtGuard)
   create(
     @Body() createSongDTO: CreateSongDTO,
     @Request()

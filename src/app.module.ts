@@ -14,27 +14,23 @@ import { PlayListModule } from './playlists/playlists.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ArtistsModule } from './artists/artists.module';
+import { dataSourceOptions } from 'db/data-source';
+import { SeedModule } from './seed/seed.module';
+import { SeedService } from './seed/seed.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      database: 'spotify-clone',
-      port: 5432,
-      username: 'postgres',
-      password: 'root',
-      entities: [Song, Artist, User, Playlist],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(dataSourceOptions),
+    TypeOrmModule.forFeature([Song, Artist, User, Playlist]),
     SongsModule,
     PlayListModule,
     UsersModule,
     AuthModule,
     ArtistsModule,
+    SeedModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, SeedService],
 })
 export class AppModule implements NestModule {
   constructor(/*private dataSource: DataSource*/) {

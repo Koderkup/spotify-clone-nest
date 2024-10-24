@@ -3,12 +3,38 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "john_doe@example.com",
-  "password": "securepassword123",
+  "firstName": "Petr",
+  "lastName": "Kuzin",
+  "email": "kuzik@example.com",
+  "password": "password",
   "twoFASecret": "your-2fa-secret",
   "enable2FA": false,
   "apiKey": "your-api-key"
 }
 
+###login user
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "kuz@example.com",
+  "password": "password"
+}
+
+
+### Profile
+GET http://localhost:3000/auth/profile
+Authorization: Bearer f12ac358-f359-415c-9b58-d1cafbc698bf
+
+###Enable 2FA 
+GET http://localhost:3000/auth/enable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt1ekBleGFtcGxlLmNvbSIsInVzZXJJZCI6MTUsImFydGlzdElkIjo1LCJpYXQiOjE3Mjk2MDYwMTAsImV4cCI6MTcyOTY5MjQxMH0.J5b_gURMPdtYQMTvBgIB5m5KCNyaBQcsCfLQfEQeFqg
+
+###Validate 2FA
+POST http://localhost:3000/auth/validate-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt1ekBleGFtcGxlLmNvbSIsInVzZXJJZCI6MTUsImFydGlzdElkIjo1LCJpYXQiOjE3Mjk2MDYwMTAsImV4cCI6MTcyOTY5MjQxMH0.J5b_gURMPdtYQMTvBgIB5m5KCNyaBQcsCfLQfEQeFqg
+Content-Type: application/json
+
+{
+  "token": "993913"
+}
