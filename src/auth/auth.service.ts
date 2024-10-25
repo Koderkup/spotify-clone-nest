@@ -6,7 +6,6 @@ import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 import { ArtistsService } from 'src/artists/artists.service';
 import { Enable2FAType, PayloadType } from './types';
-
 import * as speakeasy from 'speakeasy';
 import { UpdateResult } from 'typeorm';
 import { ConfigService } from '@nestjs/config';

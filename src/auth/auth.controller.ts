@@ -16,14 +16,22 @@ import { Enable2FAType } from './types';
 import { ValidateTokenDTO } from './dto/validate-token.dto';
 import { UpdateResult } from 'typeorm';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @Controller('auth')
+@ApiTags('auth')
 export class AuthController {
   constructor(
     private userService: UsersService,
     private authService: AuthService,
   ) {}
   @Post('signup')
+  @ApiOperation({ summary: 'Register new user' })
+  @ApiResponse({
+    status: 201,
+    description: 'It will return the user in the response',
+    type: User
+  })
   signup(
     @Body()
     userDTO: CreateUserDTO,
@@ -32,6 +40,11 @@ export class AuthController {
   }
 
   @Post('login')
+  @ApiOperation({ summary: 'Login user' })
+  @ApiResponse({
+    status: 200,
+    description: 'It will give you the access_token in the response',
+  })
   login(
     @Body()
     loginDTO: LoginDTO,
@@ -81,5 +94,10 @@ export class AuthController {
       msg: 'authenticated with api key',
       user: req.user,
     };
+  }
+
+  @Get('test')
+  test() {
+    return this.authService.getEnvVariable();
   }
 }

@@ -17,9 +17,18 @@ import { ArtistsModule } from './artists/artists.module';
 import { dataSourceOptions } from 'db/data-source';
 import { SeedModule } from './seed/seed.module';
 import { SeedService } from './seed/seed.service';
+import { ConfigModule } from '@nestjs/config';
+import configuration from './config/configuration';
+import { validate } from '../env.validation';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: ['.env.development', '.env.production'],
+      isGlobal: true,
+      load: [configuration],
+      validate: validate,
+    }),
     TypeOrmModule.forRoot(dataSourceOptions),
     TypeOrmModule.forFeature([Song, Artist, User, Playlist]),
     SongsModule,
